@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<VBox spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ducksocialnetworkm.controller.LoginController">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    <Label fx:id="lblTitle" style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+    <TextField fx:id="txtUser" promptText="Username / Email"/>
+    <PasswordField fx:id="txtPass" promptText="Parola"/>
+    <Button text="Autentificare" onAction="#handleLogin"/>
+</VBox>

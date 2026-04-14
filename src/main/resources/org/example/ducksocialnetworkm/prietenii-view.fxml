@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="650.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.ducksocialnetworkm.controller.PrietenieController">
+
+    <VBox layoutX="10.0" layoutY="10.0" prefHeight="630.0" prefWidth="780.0" spacing="10">
+        <padding><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></padding>
+
+        <Label text="Lista Prieteniilor" style="-fx-font-weight: bold; -fx-font-size: 16pt;"/>
+
+        <GridPane hgap="10" vgap="5">
+            <Label text="ID User 1:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="textFieldId1" promptText="Long ID" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="ID User 2:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <TextField fx:id="textFieldId2" promptText="Long ID" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+            <Button text="➕ Adaugă Prietenie" onAction="#handleAddPrietenie" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
+
+            <Button text="❌ Șterge Prietenie Selectată" onAction="#handleDeletePrietenie" GridPane.rowIndex="1" GridPane.columnIndex="4"/>
+        </GridPane>
+
+        <Separator/>
+
+        <TableView fx:id="tableViewPrietenii" prefHeight="300.0" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="tableColumnId1" text="ID User 1" prefWidth="350"/>
+                <TableColumn fx:id="tableColumnId2" text="ID User 2" prefWidth="350"/>
+            </columns>
+        </TableView>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button fx:id="prevButton" text="&lt; Pagina Anterioară"/>
+            <Label fx:id="pageLabel" text="Pagina 0 din 0"/>
+            <Button fx:id="nextButton" text="Pagina Următoare &gt;"/>
+        </HBox>
+
+        <Separator/>
+
+        <Label text="Analiză Comunități" style="-fx-font-weight: bold;"/>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button text="🔎 Calculează Nr. Comunități" onAction="#handleShowNrComunitati"/>
+            <Button text="👑 Cea Mai Sociabilă Comunitate" onAction="#handleShowSociableComunitate"/>
+        </HBox>
+
+    </VBox>
+</AnchorPane>

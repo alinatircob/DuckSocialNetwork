@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.ducksocialnetworkm.controller.CreateEventController"
+      spacing="15" alignment="CENTER" prefWidth="400" prefHeight="300">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Creează Eveniment Nou" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <VBox spacing="5">
+        <Label text="Nume Eveniment:"/>
+        <TextField fx:id="nameField" promptText="ex: Marea Cursă de Rațe"/>
+    </VBox>
+
+    <VBox spacing="5">
+        <Label text="Distanțe (separate prin virgulă):"/>
+        <TextField fx:id="distancesField" promptText="ex: 50.0, 100.5, 200"/>
+        <Label text="* Adaugă atâtea distanțe câte culoare vrei să fie." style="-fx-font-size: 10px; -fx-text-fill: grey;"/>
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Anulează" onAction="#handleCancel"/>
+        <Button text="Salvează" onAction="#handleSave" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+    </HBox>
+</VBox>

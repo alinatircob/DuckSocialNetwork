@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.ducksocialnetworkm.controller.EventController"
+            prefHeight="600.0" prefWidth="800.0">
+
+    <SplitPane dividerPositions="0.6" orientation="VERTICAL" AnchorPane.topAnchor="0.0"
+               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+
+        <items>
+            <AnchorPane>
+                <HBox alignment="CENTER_LEFT" spacing="10" AnchorPane.topAnchor="10.0"
+                      AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                    <Label text="🏁 Evenimente Active" style="-fx-font-weight: bold; -fx-font-size: 16px;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="createEventBtn" text="+ Creează Eveniment"
+                            style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-cursor: hand;"
+                            onAction="#handleCreateEventAction"/>
+                </HBox>
+
+                <TableView fx:id="activeEventsTable" AnchorPane.topAnchor="50.0"
+                           AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <columns>
+                        <TableColumn fx:id="nameColumn" text="Nume Eveniment" prefWidth="150"/>
+                        <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+                        <TableColumn fx:id="distColumn" text="Distanțe (m)" prefWidth="150"/>
+                        <TableColumn fx:id="actionColumn" text="Acțiuni" prefWidth="300"/>
+                    </columns>
+                    <placeholder>
+                        <Label text="Nu există evenimente active momentan."/>
+                    </placeholder>
+                </TableView>
+            </AnchorPane>
+        </items>
+
+        <items>
+            <AnchorPane>
+                <Label text="📜 Istoric &amp; Rezultate (Doar evenimentele la care ai fost abonat/participant)"
+                       AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0"
+                       style="-fx-font-weight: bold; -fx-text-fill: #555;"/>
+
+                <TableView fx:id="historyTable" AnchorPane.topAnchor="35.0"
+                           AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <columns>
+                        <TableColumn fx:id="historyNameColumn" text="Nume Eveniment" prefWidth="200"/>
+                        <TableColumn fx:id="historyResultColumn" text="Rezultat (Click pentru detalii)" prefWidth="500"/>
+                    </columns>
+                    <placeholder>
+                        <Label text="Nu ai niciun eveniment finalizat în istoric."/>
+                    </placeholder>
+                </TableView>
+            </AnchorPane>
+        </items>
+
+    </SplitPane>
+</AnchorPane>
