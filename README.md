@@ -1,89 +1,89 @@
 # 🦆 Duck Social Network
 
-> O rețea de socializare interactivă, construită în Java și JavaFX, dedicată interacțiunii dintre Persoane și... Rațe! Proiectul demonstrează aplicarea conceptelor avansate de Programare Orientată pe Obiecte (OOP), Design Patterns, Algoritmică a Grafurilor și baze de date relaționale.
+> An interactive social network, built with Java and JavaFX, dedicated to the interaction between People and... Ducks! The project demonstrates the application of advanced Object-Oriented Programming (OOP) concepts, Design Patterns, Graph Algorithms, and relational databases.
 
 ---
 
-## 🌟 Funcționalități Principale
+## 🌟 Main Features
 
-* **Sistem Dual de Utilizatori:** Suportă două tipuri de entități - `Persoane` și `Rațe` (cu abilități specifice precum `FLYING`, `SWIMMING` sau ambele).
-* **Gestionarea Prieteniilor:** Sistem complet de trimitere, acceptare sau respingere a cererilor de prietenie.
-* **Mesagerie Privată (Chat):** Sistem de chat în timp real (actualizat via *Observer Pattern*), care suportă funcționalitatea de *Reply* și ține evidența mesajelor citite/necitite.
-* **Evenimente și Competiții:** Utilizatorii pot crea evenimente (ex. curse pentru rațe), se pot înscrie ca spectatori sau participanți, iar sistemul generează automat timpii și clasamentele curselor.
-* **Algoritmică Avansată:** Implementare algoritmi pe grafuri (DFS/BFS) pentru identificarea numărului de comunități (componente conexe) și determinarea celei mai sociabile comunități.
-* **Paginare Custom:** Sistem de paginare dezvoltat de la zero, optimizat pentru baze de date mari, cu interfață grafică responsivă.
-* **Interfață Grafică (GUI):** UI modern construit cu JavaFX, FXML și stilizat prin CSS.
+* **Dual User System:** Supports two types of entities - `People` (Persoane) and `Ducks` (Rațe) (with specific abilities like `FLYING`, `SWIMMING`, or both).
+* **Friendship Management:** Full system for sending, accepting, or rejecting friend requests.
+* **Private Messaging (Chat):** Real-time chat system (updated via the *Observer Pattern*), supporting the *Reply* functionality and keeping track of read/unread messages.
+* **Events and Competitions:** Users can create events (e.g., duck races), register as spectators or participants, and the system automatically generates race times and rankings.
+* **Advanced Algorithms:** Implementation of graph algorithms (DFS/BFS) to identify the number of communities (connected components) and determine the most sociable community.
+* **Custom Pagination:** A pagination system developed from scratch, optimized for large databases, with a responsive graphical interface.
+* **Graphical User Interface (GUI):** Modern UI built with JavaFX, FXML, and styled using CSS.
 
 ---
 
-## 🛠️ Tehnologii și Arhitectură
+## 🛠️ Technologies and Architecture
 
-Acest proiect a fost dezvoltat cu un accent puternic pe *Clean Code* și arhitectură stratificată.
+This project was developed with a strong focus on *Clean Code* and a layered architecture.
 
 * **Backend:** Java 17+
 * **Frontend (GUI):** JavaFX (FXML, CSS)
-* **Bază de Date:** PostgreSQL
-* **Comunicare DB:** JDBC (cu PreparedStatement pentru prevenirea SQL Injections)
-* **Securitate:** Criptare parole (AES/BCrypt)
-* **Design Patterns folosite:**
-    * **Factory Pattern:** Pentru instanțierea dinamică a diferitelor tipuri de rațe.
-    * **Decorator Pattern:** Pentru adăugarea comportamentelor specifice (`FlyingDuck`, `SwimmingDuck`) la runtime.
-    * **Observer Pattern:** Pentru a asigura arhitectura reactivă a interfeței grafice (UI-ul se actualizează automat la primirea unui mesaj nou).
-    * **Repository / DAO Pattern:** Pentru decuplarea logicii de business de accesul la date.
+* **Database:** PostgreSQL
+* **DB Communication:** JDBC (with PreparedStatement to prevent SQL Injections)
+* **Security:** Password encryption (AES/BCrypt)
+* **Design Patterns used:**
+    * **Factory Pattern:** For dynamic instantiation of different duck types.
+    * **Decorator Pattern:** For adding specific behaviors (`FlyingDuck`, `SwimmingDuck`) at runtime.
+    * **Observer Pattern:** To ensure the reactive architecture of the graphical interface (the UI updates automatically upon receiving a new message).
+    * **Repository / DAO Pattern:** For decoupling business logic from data access.
 
 ---
 
-## ⚙️ Cum să rulezi proiectul local
+## ⚙️ How to run the project locally
 
-Dacă dorești să testezi aplicația pe propriul computer, urmează pașii de mai jos.
+If you want to test the application on your own computer, follow the steps below.
 
-### 1. Cerințe preliminare
-* **Java Development Kit (JDK):** Versiunea 17 sau mai nouă.
-* **PostgreSQL:** Instalat și rulând pe portul implicit `5432`.
-* **IDE:** IntelliJ IDEA (recomandat) sau Eclipse, configurat pentru proiecte JavaFX/Maven.
+### 1. Prerequisites
+* **Java Development Kit (JDK):** Version 17 or newer.
+* **PostgreSQL:** Installed and running on the default port `5432`.
+* **IDE:** IntelliJ IDEA (recommended) or Eclipse, configured for JavaFX/Maven projects.
 
-### 2. Configurarea Bazei de Date
-Aplicația necesită o bază de date PostgreSQL pentru a rula. Am pregătit un script de inițializare care creează tabelele, tipurile ENUM și inserează câteva date de test.
+### 2. Database Setup
+The application requires a PostgreSQL database to run. I have prepared an initialization script that creates the tables, ENUM types, and inserts some mock data.
 
-1. Deschide pgAdmin (sau terminalul psql).
-2. Creează o bază de date goală numită `useri`.
-3. Rulează scriptul `init_db.sql` aflat în rădăcina acestui repository.
+1. Open pgAdmin (or the psql terminal).
+2. Create an empty database named `useri`.
+3. Run the `init_db.sql` script located in the root of this repository.
 
-### 3. Variabile de Mediu (Opțional, dar recomandat)
-Pentru motive de securitate, aplicația citește credențialele bazei de date din variabilele de mediu. Dacă acestea nu sunt setate, va face "fallback" la valorile implicite (`postgres` / `postgres`).
+### 3. Environment Variables (Optional, but recommended)
+For security reasons, the application reads the database credentials from environment variables. If they are not set, it will fallback to the default values (`postgres` / `postgres`).
 
-Dacă baza ta de date locală are o altă parolă, setează următoarele variabile de mediu în sistemul tău sau în configurația de rulare (Run Configuration) din IDE:
-* `DB_URL` (ex: `jdbc:postgresql://localhost:5432/useri`)
-* `DB_USER` (ex: `postgres`)
-* `DB_PASSWORD` (parola ta de PostgreSQL)
+If your local database has a different password, set the following environment variables in your system or in your IDE's Run Configuration:
+* `DB_URL` (e.g., `jdbc:postgresql://localhost:5432/useri`)
+* `DB_USER` (e.g., `postgres`)
+* `DB_PASSWORD` (your PostgreSQL password)
 
-### 4. Lansarea Aplicației
-Pentru a porni aplicația cu interfața grafică, rulează clasa principală:
+### 4. Launching the Application
+To start the application with the graphical interface, run the main class:
 `src/main/java/org/example/ducksocialnetworkm/Main.java`
 
-*Notă pentru testare:* Poți folosi următoarele conturi de test incluse în scriptul SQL:
-* **Username:** `MARIAC` | **Parola:** `MYPASS`
-* **Username:** `DANV` | **Parola:** `DANPASS`
-  *(Notă: Asigură-te că parolele din baza de date locală corespund algoritmului de criptare din codul sursă).*
+*Note for testing:* You can use the following test accounts included in the SQL script:
+* **Username:** `MARIAC` | **Password:** `MYPASS`
+* **Username:** `DANV` | **Password:** `DANPASS`
+  *(Note: Make sure the passwords in your local database match the encryption algorithm in the source code).*
 
 ---
 
-## 📂 Structura Proiectului
+## 📂 Project Structure
 
-Proiectul este organizat pe pachete respectând principiul de Separare a Responsabilităților (Separation of Concerns):
+The project is organized into packages following the Separation of Concerns principle:
 
-* `controller/` - Conține clasele JavaFX care gestionează evenimentele din interfață.
-* `depozit/` - Implementarea pattern-ului Repository pentru accesul la date (DB). Conține și subpachetul `paging` pentru logica de paginare.
-* `domeniu/` - Entitățile de bază ale aplicației (`User`, `Rata`, `Mesaj`, `Event`), organizate logic.
-* `factory/` - Logica de creare a obiectelor complexe.
-* `interfata/` - Componente UI (în cazul tranzițiilor dinspre consolă spre GUI).
-* `serviciu/` - Stratul de Business Logic, unde se regăsesc algoritmii de validare, gestionarea prieteniilor și sistemul de comunități (Grafuri).
-* `utils/` - Utilitare globale (criptarea parolelor, tipurile de evenimente pentru Observer).
-* `resources/` - Fișierele `.fxml` și `style.css` pentru aspectul aplicației.
+* `controller/` - Contains the JavaFX classes that handle UI events.
+* `depozit/` - Implementation of the Repository pattern for data access (DB). It also contains the `paging` subpackage for pagination logic.
+* `domeniu/` - The core entities of the application (`User`, `Rata`, `Mesaj`, `Event`), logically organized.
+* `factory/` - The logic for creating complex objects.
+* `interfata/` - UI components (for the transition from console to GUI).
+* `serviciu/` - The Business Logic layer, containing validation algorithms, friendship management, and the community system (Graphs).
+* `utils/` - Global utilities (password encryption, event types for the Observer pattern).
+* `resources/` - The `.fxml` and `style.css` files for the application's appearance.
 
 ---
 
-## 🚀 Planuri de Viitor (Roadmap)
-* [ ] Extragerea textelor hardcodate într-un sistem de internaționalizare (i18n).
-* [ ] Trecerea la un Connection Pool (ex. HikariCP) pentru optimizarea conexiunilor la baza de date.
-* [ ] Implementarea unui "Dark Mode" prin manipularea fișierului CSS.
+## 🚀 Future Plans (Roadmap)
+* [ ] Extract hardcoded texts into an internationalization (i18n) system.
+* [ ] Transition to a Connection Pool (e.g., HikariCP) to optimize database connections.
+* [ ] Implement a "Dark Mode" by manipulating the CSS file.
